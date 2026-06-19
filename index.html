@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>햄부기의 월드컵 대기방</title>
+    
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <link rel="stylesheet" href="style.css?v=14">
+</head>
+<body>
+    <div id="game-container">
+        <h1 id="game-title">햄부기의<br>월드컵 대기방</h1>
+        
+        <div id="header-area">
+            <div id="stage-info">Stage 1</div>
+            <button id="rule-help-btn">?</button>
+        </div>
+        
+        <div id="grid"></div>
+        
+        <div id="current-brush-indicator">
+            <span>현재 선택된 블록:</span>
+            <div id="active-brush" class="brush-preview"></div>
+        </div>
+
+        <div id="control-btns">
+            <button id="undo-btn">실행 취소</button>
+            <button id="reset-btn">다시 시작</button>
+        </div>
+    </div>
+
+    <div id="tutorial-modal">
+        <div id="modal-content">
+            <h2>게임 규칙</h2>
+            <ul class="rules-list">
+                <li>모든 칸을 <b>직사각형 또는 정사각형</b>으로 나누어 색칠해요.</li>
+                <li>사각형 내의 칸 수는 <b>적힌 숫자</b>와 일치해야 해요.</li>
+                <li>각 사각형 안에는 <b>단 하나의 숫자</b>만 있어야 해요.</li>
+            </ul>
+            <div class="control-info">
+                <p>👆 <b>조작법</b></p>
+                <p>- <b>드래그:</b> 영역 색칠 / <b>터치:</b> 지우기</p>
+                <p>- <b>숫자 터치:</b> 해당 숫자 브러시로 변경</p>
+            </div>
+            <button id="start-btn">확인</button>
+        </div>
+    </div>
+
+    <div id="clear-modal" class="hidden">
+        <h2>정답입니다!</h2>
+        <button id="next-btn">다음 스테이지</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
