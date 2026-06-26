@@ -32,7 +32,8 @@ function generateDistinctColors(count) {
 
 function generatePuzzle(width, height) {
     let attempt = 0;
-    const maxAllowedArea = 8 + Math.floor((currentStage - 1) / 3) * 4;
+    // 블록 최대 크기를 25로 고정
+    const maxAllowedArea = Math.min(25, 8 + Math.floor((currentStage - 1) / 3) * 4);
 
     while (true) {
         attempt++;
@@ -266,10 +267,13 @@ function createGrid() {
     gridElement.style.gridTemplateColumns = `repeat(${gridWidth}, 1fr)`;
     gridElement.style.gridTemplateRows = `repeat(${gridHeight}, 1fr)`;
 
+    const dynamicFontSize = Math.min(24, Math.max(10, Math.floor(260 / gridWidth)));
+
     puzzleData.forEach((number, index) => {
         const cell = document.createElement('div');
         cell.classList.add('cell');
         cell.dataset.index = index;
+        cell.style.fontSize = `${dynamicFontSize}px`;
         
         if (number > 0) {
             const target = targets.find(t => parseInt(t.id) === index);
@@ -310,8 +314,9 @@ function createGrid() {
 
 function loadStage() {
     historyStack = []; 
-    gridWidth = 4 + currentStage;
-    gridHeight = 4 + currentStage;
+    
+    gridWidth = Math.min(17, 4 + currentStage);
+    gridHeight = Math.min(17, 4 + currentStage);
 
     puzzleData = generatePuzzle(gridWidth, gridHeight);
     
