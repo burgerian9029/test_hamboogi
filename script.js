@@ -32,7 +32,6 @@ function generateDistinctColors(count) {
 
 function generatePuzzle(width, height) {
     let attempt = 0;
-    // 블록 최대 크기를 25로 고정
     const maxAllowedArea = Math.min(25, 8 + Math.floor((currentStage - 1) / 3) * 4);
 
     while (true) {
@@ -315,8 +314,9 @@ function createGrid() {
 function loadStage() {
     historyStack = []; 
     
-    gridWidth = Math.min(17, 4 + currentStage);
-    gridHeight = Math.min(17, 4 + currentStage);
+    // 그리드 크기를 최대 16x16으로 고정
+    gridWidth = Math.min(16, 4 + currentStage);
+    gridHeight = Math.min(16, 4 + currentStage);
 
     puzzleData = generatePuzzle(gridWidth, gridHeight);
     
