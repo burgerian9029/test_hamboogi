@@ -314,7 +314,6 @@ function createGrid() {
 function loadStage() {
     historyStack = []; 
     
-    // 그리드 크기를 최대 16x16으로 고정
     gridWidth = Math.min(16, 4 + currentStage);
     gridHeight = Math.min(16, 4 + currentStage);
 
@@ -341,7 +340,8 @@ function loadStage() {
     });
 
     if (currentStage >= 3) {
-        let blindCount = Math.min(Math.floor(currentStage / 3), targets.length - 1);
+        // 물음표 개수 최대 10개로 제한
+        let blindCount = Math.min(10, Math.floor(currentStage / 3), targets.length - 1);
         let shuffledTargets = [...targets].sort(() => 0.5 - Math.random());
         for (let i = 0; i < blindCount; i++) {
             shuffledTargets[i].displayNumber = '?';
